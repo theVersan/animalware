@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Responsivo</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="login.css">
+</head>
+<body>
+    <!-- <img class="logo" src="/images/logopreto.png"> -->
+    <div class="container">
+        <div style="text-align: center; margin-top: 20px; z-index: -10;">
+            <img class="pata" src="/images/pata2.png" alt="Pata">
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <img class="pata1" src="/images/pata2.png" alt="Pata">
+        </div>
+        <div class="page">
+            <form method="POST" class="formCadastro" id="formCadastro">
+                <h1>Cadastre-se</h1>
+                <p>Digite os seus dados de acesso no campo abaixo.</p>
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input id="email" type="email" class="form-control" placeholder="Digite seu e-mail" autofocus="true" required />
+                </div>
+                <div class="form-group">
+                    <label for="password">Crie sua senha:</label>
+                    <input type="password" id="password" class="form-control" placeholder="Digite sua senha" required />
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirme sua senha:</label>
+                    <input type="password" id="confirmPassword" class="form-control" placeholder="Confirme sua senha" required />
+                </div>
+                <input type="submit" value="Cadastre-se" class="btn" />
+                <a class="ir" href="/login"><p>Ir para login</p></a>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const formCadastro = document.getElementById('formCadastro');
+        formCadastro.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            if (password !== confirmPassword) {
+                alert('As senhas não coincidem');
+                return;
+            }
+            try {
+                const response = await fetch('/authCadastro', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        password: password,
+                    })
+                });
+                const data = await response.json();
+                if (data.user) {
+                    alert('Cadastro realizado');
+                    window.location.href = '/login'; // Redireciona para a tela de login após o cadastro
+                } else {
+                    alert('Erro ao cadastrar usuário: ' + (data.message || 'Desconhecido'));
+                }
+            } catch (error) {
+                console.error('Erro na requisição:', error);
+                alert('Erro ao cadastrar usuário: ' + error.message);
+            }
+        });
+    </script>
+</body>
+        <style>
+.logo {
+    justify-content: center;
+    position: absolute;
+    top: 0px;
+    left: 50%; /* Posiciona a imagem no centro horizontalmente */
+    transform: translateX(-50%); /* Ajusta a posição horizontalmente para o centro */
+    width: 50%; /* Defina a largura como 50% do contêiner pai */
+    max-width: 360px; /* Define a largura máxima da imagem */
+    height: auto; /* Mantém a proporção original da imagem */
+}
+@media (max-width: 568px) {
+    .logo {
+        width: 100%; /* Aumenta a largura para 80% quando a largura da tela for de até 568px */
+        max-width: none; /* Remove a largura máxima definida anteriormente */
+    }
+}
+@media (max-width: 568px) {
+    .pata, .pata1 {
+        display: none; /* Oculta as imagens "pata" quando a largura da tela for menor ou igual a 768px */
+    }
+}
+            .pata{
+                max-width: 550px;
+                height: auto;
+                width: 1000px;
+                position: absolute;
+                top: 70px;
+                left: 80px;
+                z-index: 1;
+            }
+            .pata1{
+                max-width: 550px;
+                position: absolute;
+                top: 400px;
+                left: 1200px;
+                z-index: 1;
+            }
+            p {
+                display: inline-block;
+                font-size: 14px;
+                color: black;
+                margin-bottom: 5px;
+            }
+            p:hover {
+                text-decoration: underline; /* Adiciona uma linha embaixo do texto quando o usuário passa o mouse sobre ele */
+            }
+            body, html {
+                font-family: 'Inter', sans-serif;
+                margin: 0;
+                padding: 0;
+                color: #023047;
+                background-color: #79955D;
+                height: 100%;
+                width: 100%;
+            }
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+            }
+            .formCadastro {
+                background-color: #fff;
+                border-radius: 7px;
+                padding: 20px;
+                box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                max-width: 400px;
+                margin: 20px 0;
+            }
+            .formCadastro h1 {
+                font-weight: 500;
+                font-size: 2.3em;
+            }
+            .formCadastro p {
+                font-size: 14px;
+                color: black;
+            }
+            .formCadastro label {
+                font-size: 14px;
+                font-weight: 600;
+            }
+            .formCadastro input {
+                padding: 10px;
+                font-size: 14px;
+                border: 1px solid #ccc;
+                margin-bottom: 20px;
+                border-radius: 4px;
+                transition: border 160ms linear;
+                width: 100%;
+            }
+            .formCadastro input:focus {
+                border: 1px solid #023047;
+            }
+            .btn {
+                background-color: black;
+                color: #fff;
+                font-size: 14px;
+                font-weight: 600;
+                border: none;
+                transition: transform 160ms linear, background-color 160ms linear;
+                cursor: pointer;
+                width: 100%;
+                padding: 10px;
+            }
+            .btn:hover {
+                transform: scale(1.05);
+                background-color: #023047;
+            }
+        </style>
+</html>
+
+
+
+
+
+
+

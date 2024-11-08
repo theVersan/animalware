@@ -1,0 +1,246 @@
+### Testar Endpoints para ContactUser
+
+# Criar um novo ContactUser
+POST http://localhost:1337/ContactUser
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com"
+}
+
+###
+
+# Obter todos os ContactUsers
+GET http://localhost:1337/ContactUser
+
+###
+
+# Obter um ContactUser por ID
+GET http://localhost:1337/ContactUser/1
+
+###
+
+# Atualizar um ContactUser por ID
+PUT http://localhost:1337/ContactUser/1
+Content-Type: application/json
+
+{
+  "name": "Jane Doe",
+  "email": "jane@example.com"
+}
+
+###
+
+# Deletar um ContactUser por ID
+DELETE http://localhost:1337/ContactUser/1
+
+### Testar Endpoints para DogReason
+
+# Criar um novo DogReason
+POST http://localhost:1337/DogReason
+Content-Type: application/json
+
+{
+  "reason": "Exercise"
+}
+
+###
+
+# Obter todos os DogReasons
+GET http://localhost:1337/DogReason
+
+###
+
+# Obter um DogReason por ID  #404
+GET http://localhost:1337/DogReason/1
+
+###
+
+# Atualizar um DogReason por ID
+PUT http://localhost:1337/DogReason/1
+Content-Type: application/json
+
+{
+  "reason": "Companionship"
+}
+
+###
+
+# Deletar um DogReason por ID
+DELETE http://localhost:1337/DogReason/1
+
+### Testar Endpoints para DontHaveButWant
+
+# Criar um novo DontHaveButWant
+POST http://localhost:1337/DontHaveButWant
+Content-Type: application/json
+
+{
+  "reason": "Allergy"
+}
+
+###
+
+# Obter todos os DontHaveButWants
+GET http://localhost:1337/DontHaveButWant
+
+###
+
+# Obter um DontHaveButWant por ID #Desconecta o sails
+GET http://localhost:1337/DontHaveButWant/1
+
+###
+
+# Atualizar um DontHaveButWant por ID
+PUT http://localhost:1337/DontHaveButWant/1
+Content-Type: application/json
+
+{
+  "reason": "Lifestyle"
+}
+
+###
+
+# Deletar um DontHaveButWant por ID
+DELETE http://localhost:1337/DontHaveButWant/1
+
+### Testar Endpoints para DontLivedAndDontWant
+
+# Criar um novo DontLivedAndDontWant
+POST http://localhost:1337/DontLivedAndDontWant
+Content-Type: application/json
+
+{
+  "reason": "Travel"
+}
+
+###
+
+# Obter todos os DontLivedAndDontWants
+GET http://localhost:1337/DontLivedAndDontWant
+
+###
+
+# Obter um DontLivedAndDontWant por ID #Desconecta o sails
+GET http://localhost:1337/DontLivedAndDontWant/1
+
+###
+
+# Atualizar um DontLivedAndDontWant por ID 
+PUT http://localhost:1337/DontLivedAndDontWant/1
+Content-Type: application/json
+
+{
+  "reason": "Work"
+}
+
+###
+
+# Deletar um DontLivedAndDontWant por ID
+DELETE http://localhost:1337/DontLivedAndDontWant/1
+
+### Testar Endpoints para HadDogsOrLivedWith
+
+# Criar um novo HadDogsOrLivedWith
+POST http://localhost:1337/HadDogsOrLivedWith
+Content-Type: application/json
+
+{
+  "experience": "Positive"
+}
+
+###
+
+# Obter todos os HadDogsOrLivedWith
+GET http://localhost:1337/HadDogsOrLivedWith
+
+###
+
+# Obter um HadDogsOrLivedWith por ID #Desconecta o sails
+GET http://localhost:1337/HadDogsOrLivedWith/1
+
+###
+
+# Atualizar um HadDogsOrLivedWith por ID
+PUT http://localhost:1337/HadDogsOrLivedWith/1
+Content-Type: application/json
+
+{
+  "experience": "Negative"
+}
+
+###
+
+# Deletar um HadDogsOrLivedWith por ID
+DELETE http://localhost:1337/HadDogsOrLivedWith/1
+
+### Testar Endpoints para HaveDogs
+
+# Criar um novo HaveDogs
+POST http://localhost:1337/HaveDogs
+Content-Type: application/json
+
+{
+  "number": 2
+}
+
+###
+
+# Obter todos os HaveDogs
+GET http://localhost:1337/HaveDogs
+
+###
+
+# Obter um HaveDogs por ID #Desconecta o sails
+GET http://localhost:1337/HaveDogs/1
+
+###
+
+# Atualizar um HaveDogs por ID
+PUT http://localhost:1337/HaveDogs/1
+Content-Type: application/json
+
+{
+  "number": 3
+}
+
+###
+
+# Deletar um HaveDogs por ID
+DELETE http://localhost:1337/HaveDogs/1
+
+### Testar Endpoints para PeopleInDecision
+
+# Criar um novo PeopleInDecision
+POST http://localhost:1337/PeopleInDecision
+Content-Type: application/json
+
+{
+  "person": "John Doe"
+}
+
+###
+
+# Obter todos os PeopleInDecisions
+GET http://localhost:1337/PeopleInDecision
+
+###
+
+# Obter um PeopleInDecision por ID
+GET http://localhost:1337/PeopleInDecision/1
+
+###
+
+# Atualizar um PeopleInDecision por ID
+PUT http://localhost:1337/PeopleInDecision/1
+Content-Type: application/json
+
+{
+  "person": "Jane Doe"
+}
+
+###
+
+# Deletar um PeopleInDecision por ID
+DELETE http://localhost:1337/PeopleInDecision/1

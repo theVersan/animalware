@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu título</title>
+
+    <style>
+        /* Estilos gerais do corpo da página */
+        body {
+            font-family: 'Helvetica', Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #79955D; /* Fundo verde */
+        }
+
+        /* Estilos da div principal */
+        .page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            padding: 1rem;
+            position: relative; /* Para posicionamento absoluto da patinha */
+        }
+
+        /* Estilos do formulário de login */
+        .formLogin {
+            display: flex;
+            flex-direction: column;
+            background-color: rgba(255, 255, 255, 1);
+            border-radius: 7px;
+            padding: 2rem;
+            box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.4);
+            gap: 10px;
+            max-width: 450px;
+            width: 100%;
+            z-index: 1; /* Garante que o formulário fique acima da imagem de fundo no mobile */
+        }
+
+        /* Estilos do título do formulário */
+        .formLogin h1 {
+            margin: 0;
+            font-weight: 500;
+            font-size: 2.2rem;
+            text-align: center;
+        }
+
+        /* Estilos dos parágrafos dentro do formulário */
+        .formLogin p {
+            font-size: 1rem;
+            color: black;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        /* Estilos dos campos de entrada do formulário */
+        .formLogin input {
+            padding: 1rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+            transition: all linear 160ms;
+            outline: none;
+        }
+
+        /* Estilos dos rótulos dentro do formulário */
+        .formLogin label {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Estilos dos links dentro do formulário */
+        .formLogin a {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #555;
+            transition: all linear 160ms;
+            text-align: center;
+        }
+
+        /* Estilos do botão de envio do formulário */
+        .btn {
+            background-color: black;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 1rem;
+            border: none !important;
+            transition: all linear 160ms;
+            cursor: pointer;
+            margin: 0 !important;
+            text-align: center;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background-color: #023047;
+        }
+
+        /* Estilos da imagem do logo */
+        .logo-imagem {
+            position: absolute;
+            top: 1px;
+            left: 20px;
+            width: 400px;
+            z-index: 2; /* Garante que fique acima do formulário */
+        }
+
+        /* Estilos da imagem da patinha (para web e mobile) */
+        .patinha-imagem {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 100px; /* Tamanho da imagem da patinha */
+            z-index: 0; /* Garante que fique atrás do formulário */
+            display: block; /* Mostra a patinha em dispositivos móveis */
+        }
+
+        /* Estilos para Dispositivos Móveis */
+        @media (max-width: 768px) {
+            .formLogin {
+                padding: 1.5rem;
+                max-width: 350px;
+            }
+
+            .formLogin h1 {
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+            }
+
+            .formLogin p {
+                font-size: 0.9rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .formLogin input,
+            .formLogin .btn {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+            }
+
+            .logo-imagem {
+                justify-content: center;
+    position: absolute;
+    top: 0px;
+    left: 50%; /* Posiciona a imagem no centro horizontalmente */
+    transform: translateX(-50%); /* Ajusta a posição horizontalmente para o centro */
+    width: 50%; /* Defina a largura como 50% do contêiner pai */
+    max-width: 360px; /* Define a largura máxima da imagem */
+    height: auto; /* Mantém a proporção original da imagem */
+                z-index: 0;
+            }
+
+            .patinha-imagem {
+                display: block; /* Mostra a patinha em dispositivos móveis */
+                bottom: 10px; /* Ajustei a posição da patinha em dispositivos móveis */
+                right: 10px;
+                width: 80px; /* Reduzi o tamanho da patinha em dispositivos móveis */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+    <!-- Imagem do logo -->
+    <a href="/">
+        <img class="logo-imagem" src="/images/logopreto.png" alt="Logo">
+    </a>
+    <!-- Formulário de login -->
+    <form method="POST" class="formLogin" id="formLogin">
+        <h1>Login</h1>
+        <p>Digite os seus dados de acesso no campo abaixo.</p>
+
+        <label for="email">E-mail:</label>
+        <input id="email" type="email" placeholder="Digite seu e-mail" autofocus="true" required />
+
+        <label for="password">Senha:</label>
+        <input id="password" type="password" placeholder="Digite sua senha" required />
+
+        <p>
+            <input type="checkbox" name="manterlogado" id="manterlogado" value="" />
+            <label for="manterlogado">Manter-me logado</label>
+        </p>
+
+        <a href="/pass_recover">Esqueci minha senha</a>
+
+        <input type="submit" value="Acessar" class="btn" />
+        
+        <p>Ainda não tem conta? <a href="/tela_cadastro">Cadastre-se</a></p>
+    </form>
+
+    <!-- Imagem da patinha (para web e mobile) -->
+    <img class="patinha-imagem" src="/images/patinha.png" alt="Imagem patinha" />
+</div>
+
+<!-- Script para manipulação do envio do formulário -->
+<script>
+    // Obtém o formulário pelo ID
+    const formLogin = document.getElementById('formLogin');
+
+    // Adiciona um ouvinte de evento para o envio do formulário
+    formLogin.addEventListener('submit', async (event) => {
+        event.preventDefault(); // Previne o envio padrão do formulário
+
+        // Obtém os valores dos campos de email e senha
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        // Envia uma solicitação POST para a URL '/authLogin'
+        fetch('/authLogin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json' // Define o cabeçalho Content-Type como JSON
+            },
+            body: JSON.stringify({
+                email: email, // Adiciona o email ao corpo da solicitação
+                password: password, // Adiciona a senha ao corpo da solicitação
+            })
+        }).then((response) => response.json()) // Converte a resposta para JSON
+          .then((data) => {
+              console.log(data); // Loga a resposta no console
+
+              // Verifica se o usuário foi autenticado
+              if (data.user) {
+                  alert('Acesso liberado'); // Alerta em caso de sucesso
+                  location.href='/formuser'
+              } else {
+                  alert('Erro no email ou senha'); // Alerta em caso de erro
+              }
+          }).catch((error) => {
+              console.error(error); // Loga o erro no console
+          })
+    });
+</script>
+
+</body>
+</html>

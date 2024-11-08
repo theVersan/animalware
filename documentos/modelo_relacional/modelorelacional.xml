@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
+<!-- Active URL: https://sql.toad.cz/ -->
+<sql>
+<datatypes db="mysql">
+	<group label="Numeric" color="rgb(238,238,170)">
+		<type label="Integer" length="0" sql="INTEGER" quote=""/>
+	 	<type label="TINYINT" length="0" sql="TINYINT" quote=""/>
+	 	<type label="SMALLINT" length="0" sql="SMALLINT" quote=""/>
+	 	<type label="MEDIUMINT" length="0" sql="MEDIUMINT" quote=""/>
+	 	<type label="INT" length="0" sql="INT" quote=""/>
+		<type label="BIGINT" length="0" sql="BIGINT" quote=""/>
+		<type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
+		<type label="Single precision" length="0" sql="FLOAT" quote=""/>
+		<type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
+	</group>
+
+	<group label="Character" color="rgb(255,200,200)">
+		<type label="Char" length="1" sql="CHAR" quote="'"/>
+		<type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
+		<type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
+		<type label="Binary" length="1" sql="BINARY" quote="'"/>
+		<type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
+		<type label="BLOB" length="0" sql="BLOB" re="BLOB" quote="'"/>
+	</group>
+
+	<group label="Date &amp; Time" color="rgb(200,255,200)">
+		<type label="Date" length="0" sql="DATE" quote="'"/>
+		<type label="Time" length="0" sql="TIME" quote="'"/>
+		<type label="Datetime" length="0" sql="DATETIME" quote="'"/>
+		<type label="Year" length="0" sql="YEAR" quote=""/>
+		<type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
+	</group>
+	
+	<group label="Miscellaneous" color="rgb(200,200,255)">
+		<type label="ENUM" length="1" sql="ENUM" quote=""/>
+		<type label="SET" length="1" sql="SET" quote=""/>
+		<type label="Bit" length="0" sql="bit" quote=""/>
+	</group>
+</datatypes><table x="972" y="325" name="users">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_contact_users" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="contact_users" row="id" />
+</row>
+<row name="age" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="gender" null="0" autoincrement="0">
+<datatype>VARCHAR(10)</datatype>
+<default>'NULL'</default></row>
+<row name=" education" null="0" autoincrement="0">
+<datatype>VARCHAR(80)</datatype>
+<default>'NULL'</default></row>
+<row name="country" null="0" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>'NULL'</default></row>
+<row name="state" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="city" null="0" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>'NULL'</default></row>
+<row name="neighborhood" null="1" autoincrement="0">
+<datatype>VARCHAR(30)</datatype>
+<default>NULL</default></row>
+<row name="live_type" null="0" autoincrement="0">
+<datatype>VARCHAR(20)</datatype>
+<default>'NULL'</default></row>
+<row name="build_family" null="0" autoincrement="0">
+<datatype>VARCHAR(30)</datatype>
+<default>'NULL'</default></row>
+<row name="income" null="0" autoincrement="0">
+<datatype>VARCHAR(30)</datatype>
+<default>'NULL'</default></row>
+<row name="people_in_house" null="0" autoincrement="0">
+<datatype>VARCHAR(20)</datatype>
+<default>'NULL'</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="581" y="365" name="contact_users">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="complete_name" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="social_name" null="1" autoincrement="0">
+<datatype>VARCHAR(30)</datatype>
+<default>NULL</default></row>
+<row name="phone" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="email" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="585" y="593" name="have_dogs">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><comment>NÃO HAVERÁ CACHORRO REPITIDO</comment>
+</row>
+<row name="id_contact_users" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="contact_users" row="id" />
+</row>
+<row name="id_users" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="users" row="id" />
+</row>
+<row name="dog_name" null="0" autoincrement="0">
+<datatype>VARCHAR(60)</datatype>
+<default>'NULL'</default></row>
+<row name="dog_gender" null="0" autoincrement="0">
+<datatype>BINARY</datatype>
+<default>'NULL'</default></row>
+<row name="owner" null="0" autoincrement="0">
+<datatype>BINARY</datatype>
+<default>'NULL'</default><comment>Sim ou não</comment>
+</row>
+<row name="neutered" null="0" autoincrement="0">
+<datatype>BINARY</datatype>
+<default>'NULL'</default></row>
+<row name="when_neutered" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="time_with_you" null="0" autoincrement="0">
+<datatype>VARCHAR(30)</datatype>
+<default>'NULL'</default></row>
+<row name="first_dog?" null="0" autoincrement="0">
+<datatype>BINARY</datatype>
+<default>'NULL'</default></row>
+<row name="how_many_pets_in_home" null="0" autoincrement="0">
+<datatype>VARCHAR(30)</datatype>
+<default>'NULL'</default></row>
+<row name="how_many_dogs" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="how_many_cats" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="dog_age" null="0" autoincrement="0">
+<datatype>VARCHAR(20)</datatype>
+<default>'NULL'</default></row>
+<row name="dog_breed" null="0" autoincrement="0">
+<datatype>VARCHAR(60)</datatype>
+<default>'NULL'</default><comment>Exemplificar no Front-ende, se há mistura de raças ou se é puro</comment>
+</row>
+<row name="what_breed" null="1" autoincrement="0">
+<datatype>VARCHAR(30)</datatype>
+<default>NULL</default></row>
+<row name="dog_origin" null="0" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>'NULL'</default></row>
+<row name="was_paid" null="0" autoincrement="0">
+<datatype>BINARY</datatype>
+<default>'NULL'</default></row>
+<row name="age_arrived" null="0" autoincrement="0">
+<datatype>VARCHAR(20)</datatype>
+<default>'NULL'</default></row>
+<row name="dog_personality" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>'NULL'</default></row>
+<row name="dog_reason" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="favorite_dog_traits" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>'NULL'</default></row>
+<row name="people_in_decision" null="0" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>'NULL'</default></row>
+<row name="dog_not_home" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>'NULL'</default></row>
+<row name="vet_frequency" null="0" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>'NULL'</default></row>
+<row name="amount_of_vet_visit" null="1" autoincrement="0">
+<datatype>VARCHAR(30)</datatype>
+<default>NULL</default></row>
+<row name="dog_summary" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>'NULL'</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+<comment>Table for those have already dogs</comment>
+</table>
+<table x="277" y="173" name="had_dogs_or_lived_with">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_users" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="users" row="id" />
+</row>
+<row name="id_contact_users" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="contact_users" row="id" />
+</row>
+<row name="dog_name" null="0" autoincrement="0">
+<datatype>VARCHAR(60)</datatype>
+<default>'NULL'</default></row>
+<row name="onwer" null="0" autoincrement="0">
+<datatype>VARCHAR(30)</datatype>
+<default>'NULL'</default></row>
+<row name="dog_personality" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>'NULL'</default></row>
+<row name="time_with_the_dog" null="0" autoincrement="0">
+<datatype>VARCHAR(60)</datatype>
+<default>'NULL'</default></row>
+<row name="first_dog_question" null="0" autoincrement="0">
+<datatype>BINARY</datatype>
+<default>'NULL'</default></row>
+<row name="pets_in_home" null="0" autoincrement="0">
+<datatype>VARCHAR(15)</datatype>
+<default>'NULL'</default></row>
+<row name="how_many_dogs" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="how_many_cats" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="dog_arrived_age" null="0" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>'NULL'</default></row>
+<row name="neutered" null="0" autoincrement="0">
+<datatype>BINARY</datatype>
+<default>'NULL'</default></row>
+<row name="age_neutered" null="0" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>'NULL'</default></row>
+<row name="breed_defined" null="0" autoincrement="0">
+<datatype>VARCHAR(60)</datatype>
+<default>'NULL'</default></row>
+<row name="what_breed" null="1" autoincrement="0">
+<datatype>VARCHAR(30)</datatype>
+<default>NULL</default></row>
+<row name="dog_origin" null="1" autoincrement="0">
+<datatype>VARCHAR(60)</datatype>
+<default>NULL</default></row>
+<row name="other" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="dog_price" null="1" autoincrement="0">
+<datatype>VARCHAR(20)</datatype>
+<default>NULL</default></row>
+<row name="dog_reason" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>'NULL'</default></row>
+<row name="other_reasons" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="dog_characteristics" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>'NULL'</default></row>
+<row name="people_in_decision" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default><comment>Quais eram as pessos envolvidas na decisão? </comment>
+</row>
+<row name="other_people" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="most_like" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="dislike" null="1" autoincrement="0">
+<datatype>VARCHAR(200)</datatype>
+<default>NULL</default></row>
+<row name="go_to_vet" null="1" autoincrement="0">
+<datatype>BINARY</datatype>
+<default>NULL</default></row>
+<row name="vet_frequency" null="0" autoincrement="0">
+<datatype>VARCHAR(60)</datatype>
+<default>'NULL'</default></row>
+<row name="last_contact" null="1" autoincrement="0">
+<datatype>VARCHAR(60)</datatype>
+<default>NULL</default></row>
+<row name="dog_age_in_last_contatc" null="1" autoincrement="0">
+<datatype>VARCHAR(30)</datatype>
+<default>NULL</default></row>
+<row name="reasons_of_last_contact" null="0" autoincrement="0">
+<datatype>VARCHAR(200)</datatype>
+<default>'NULL'</default></row>
+<row name="would_have_New_dog" null="1" autoincrement="0">
+<datatype>BINARY</datatype>
+<default>NULL</default></row>
+<row name="reason" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>'NULL'</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1224" y="358" name="dont_have_but_want">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_user" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="users" row="id" />
+</row>
+<row name="dog_size" null="1" autoincrement="0">
+<datatype>VARCHAR(10)</datatype>
+<default>NULL</default></row>
+<row name="dog_coat" null="1" autoincrement="0">
+<datatype>VARCHAR(10)</datatype>
+<default>NULL</default></row>
+<row name=" color" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>'NULL'</default></row>
+<row name="dog_gender" null="1" autoincrement="0">
+<datatype>VARCHAR(10)</datatype>
+<default>NULL</default></row>
+<row name="dog_age" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>'NULL'</default></row>
+<row name="dog_breed" null="1" autoincrement="0">
+<datatype>VARCHAR(60)</datatype>
+<default>NULL</default></row>
+<row name="dog_reason" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="other_reasons" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>'NULL'</default></row>
+<row name="thought a DogName?" null="1" autoincrement="0">
+<datatype>BINARY</datatype>
+<default>NULL</default></row>
+<row name="dog_name" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
+<row name="prefer Adopt or buy?" null="1" autoincrement="0">
+<datatype>VARCHAR(10)</datatype>
+<default>NULL</default></row>
+<row name="When_will_recive_the_dog?" null="1" autoincrement="0">
+<datatype>VARCHAR(20)</datatype>
+<default>NULL</default></row>
+<row name="Personality you expect?" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>'NULL'</default></row>
+<row name="Know_about_costs?" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default><comment>colocar um campo para ele dizer a expectativa de gastos</comment>
+</row>
+<row name="how_much" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>'NULL'</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="896" y="775" name="dont_lived_and_dont_want">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_users" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="users" row="id" />
+</row>
+<row name="why_dont_want" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+</sql>

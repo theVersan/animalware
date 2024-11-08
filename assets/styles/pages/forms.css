@@ -1,0 +1,711 @@
+.cta {
+    position: relative;
+    padding: 12px 18px;
+    transition: all 0.2s ease;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.cta:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 50px;
+    background: #b1dae7;
+    width: 45px;
+    height: 45px;
+    transition: all 0.6s ease;
+}
+
+.cta span {
+    position: relative;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 18px;
+    font-weight: bolder;
+    letter-spacing: 0.05em;
+    color: #234567;
+}
+
+.cta svg {
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #234567;
+    stroke-width: 2;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.cta:hover:before {
+    width: 100%;
+    background: #7fa8b5;
+}
+
+.cta:hover svg {
+    transform: translateX(4px);
+}
+
+.cta:active {
+    transform: scale(0.95);
+}
+
+/* Specific styles for each question */
+#name-question .question-label {
+    color: #FF5733;
+}
+
+#email-question .question-label {
+    color: #33C1FF;
+}
+
+#age-question .question-label {
+    color: #75FF33;
+}
+
+.date-input-container {
+    margin-top: 5px;
+}
+
+#name-question .question-input {
+    background-color: #FFEFDB;
+}
+
+#email-question .question-input {
+    background-color: #DBF3FF;
+}
+
+#age-question .question-input {
+    background-color: #E5FFDB;
+}
+
+#country-question .question-input {
+    font-size: 20px;
+}
+
+.question-layout-1 {
+    padding-top: 20px;
+    border-radius: 10px;
+}
+
+.question-layout-2 {
+    background-color: #ffe0b2;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.question-layout-3 {
+    background-color: #c8e6c9;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.custom-label {
+    font-family: "League Gothic", sans-serif;
+    color: #ffffff;
+    font-size: 6vh;
+    margin: 0 auto;
+    /* Removendo margem à esquerda e à direita */
+    display: block;
+    /* Garantindo que ocupe a largura total do contêiner */
+    text-align: center;
+    /* Alinhando o texto ao centro */
+}
+
+@keyframes pulse {
+0% {
+    transform: scale(1);
+}
+50% {
+    transform: scale(1.1);
+}
+100% {
+    transform: scale(1);
+}
+}
+
+.custom-input {
+    .custom-input {
+font-family: Quicksand, sans-serif;
+color: #123456;
+height: 60vh;
+width: 100vh;
+max-width: 1000px;
+padding: 10px;
+margin-top: 5px;
+border: 1px solid #ccc;
+border-radius: 50px;
+box-sizing: border-box;
+margin: 0 auto;  
+display: block;
+}
+}
+
+.question-explanation {
+background-color: #0978d2ae;
+color: #ffffff;
+border-radius: 5px;
+padding: 10px;
+text-align: left;
+font-size: 16px;
+margin-bottom: 20px;
+display: flex;
+align-items: center;
+/* height: 60%; / / Remova ou comente esta linha */
+width: 50%;
+margin: 0 auto;
+margin-top: 2%;
+/* Removendo margem à esquerda e à direita */
+display: block;
+/* Garantindo que ocupe a largura total do contêiner */
+border: 100%;
+min-height: 60px; /* Defina uma altura mínima desejada */
+}
+
+.question-explanation-icon {
+    margin-right: 10px;
+    height: 10%;
+    width: 10%;
+}
+
+.question-explanation {
+    background-color: #0978d2ae;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: left;
+    font-size: 16px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    /* height: 60%; */
+    /* Remova ou comente esta linha */
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 2%;
+    /* Removendo margem à esquerda e à direita */
+    display: block;
+    /* Garantindo que ocupe a largura total do contêiner */
+    border: 100%;
+    min-height: 60px;
+    /* Defina uma altura mínima desejada */
+}
+
+.question-explanation-icon {
+    margin-right: 10px;
+    height: 10%;
+    width: 10%;
+}
+
+.custom-input-2 {
+    font-family: "Quicksand", sans-serif;
+    color: #123456;
+    height: 10vh;
+    width: 100vh;
+    max-width: 1000px;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+    margin-left: 60vh;
+    display: block;
+    font-size: 3vh;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 5%;
+    /* Reduza esta margem para 5% */
+}
+
+#prevBtn {
+    margin-right: auto;
+}
+
+#nextBtn {
+    margin-left: auto;
+}
+
+.background-image {
+    position: absolute;
+    top: 70%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    width: 120vh;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.background-image-2 {
+    position: absolute;
+    top: 40%;
+    left: 87%;
+    transform: translate(-50%, -50%);
+    width: 120vh;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.progress-container {
+    width: 500px;
+    height: 10px;
+    background-color: #757474;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 3vh;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #fdc200;
+    transition: width 0.5s ease;
+}
+
+.button24 {
+    position: fixed;
+    bottom: 500px;
+    right: 20px;
+    width: 5vh;
+    height: 5vh;
+    background-color: #ffffff;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    border: #004dff;
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: pulse 1s infinite;
+}
+
+.button24:hover {
+    transform: scale(1.1);
+}
+
+.button24:active {
+    background-color: #020cd1;
+}
+
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35%;
+    margin-bottom: 60%;
+    border-bottom: 15px solid white;
+}
+
+.up {
+    transform: translateY(-50%);
+}
+
+.darkened {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.data-input {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 3vh;
+    box-sizing: border-box;
+    align-self: center;
+    margin: 0 auto;
+    /* Removendo margem à esquerda e à direita */
+    display: block;
+    /* Garantindo que ocupe a largura total do contêiner */
+}
+
+.data-input::-webkit-calendar-picker-indicator {
+    background-color: #fff;
+    color: #333;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.data-input-container {
+    position: relative;
+    display: inline-block;
+}
+
+.data-input-container .data-input {
+    padding-right: 40px;
+}
+
+.data-input-container .calendar-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.gender-select {
+    font-family: Quicksand, sans-serif;
+    color: #123456;
+    height: 40px;
+    width: 300px;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gender-select option {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.gender-select option svg {
+    margin-right: 5px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.up {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+.darkened {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+
+.highlighted {
+    z-index: 1001;
+}
+
+.down {
+
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+.card1 {
+    width: 90px;
+    height: 90px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 90px 5px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+    text-align: right;
+}
+
+.instagram {
+    margin-top: 1.5em;
+    margin-left: 1.2em;
+    fill: #f80000;
+}
+
+.card2 {
+    width: 90px;
+    height: 90px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 90px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+}
+
+.twitter {
+    margin-top: 1.5em;
+    margin-left: -.9em;
+    fill: #03A9F4;
+}
+
+.card3 {
+    width: 90px;
+    height: 90px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 5px 5px 90px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+}
+
+.github {
+    margin-top: -.6em;
+    margin-left: 1.2em;
+}
+
+.card4 {
+    width: 90px;
+    height: 90px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 5px 90px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+}
+
+.discord {
+    margin-top: -.9em;
+    margin-left: -1.2em;
+    fill: #8c9eff;
+}
+
+.card1:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #ff0000;
+}
+
+.card1:hover .instagram {
+    fill: white;
+}
+
+.card2:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #03A9F4;
+}
+
+.texto-maior {
+    font-size: 15vh;
+    /* Tamanho do texto maior */
+}
+
+.card2:hover .twitter {
+    fill: white;
+}
+
+.card3:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: black;
+}
+
+.card3:hover .github {
+    fill: white;
+}
+
+.card4:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #8c9eff;
+}
+
+.card4:hover .discord {
+    fill: white;
+}
+
+.mobile {
+    display: none;
+}
+
+.card2 svg {
+    margin-top: 1em;
+    margin-left: -2em;
+    /* Adicione esta linha ou ajuste o valor para mover mais à esquerda */
+    fill: #03A9F4;
+}
+
+.card1 svg {
+    /* margin-top: 1.5em; */
+    margin-left: 3em;
+    /* Adicione esta linha ou ajuste o valor para mover mais à esquerda */
+    fill: #03A9F4;
+}
+
+.logoDesk {
+    width: 30vh; 
+    margin-left: 0%;
+    display: block;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Ocupa toda a largura disponível */
+    padding: 0 10px; /* Espaçamento lateral */
+    position: absolute;
+    bottom: 10px; /* Fixado a 10px do fundo da tela */
+}
+
+.buttons button {
+    flex: 1; /* Garantir que os botões cresçam igualmente */
+    margin: 0 5px; /* Espaçamento entre os botões */
+    flex-grow: 0;
+}
+
+.loading {
+    display: none;
+}
+
+@media (max-width: 1280px) {
+    .logoDesk {
+        display: block; /* Certifica-se de que a logo seja exibida */
+        position: fixed; /* Mantém a logo fixa no canto superior esquerdo */
+        top: 10px; /* Ajusta a posição superior conforme necessário */
+        left: 10px; /* Ajusta a posição esquerda conforme necessário */
+        width: 60px; /* Define o tamanho desejado da logo */
+        height: auto; /* Mantém a proporção da logo */
+        z-index: 100; /* Mantém a logo acima de outros elementos */
+    }
+
+    .elementosCentro {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh; /* Ocupa a altura total da tela */
+        justify-content: flex-start; /* Alinha os elementos no topo */
+        position: relative;
+        margin-top: 20px; /* Adicione um espaço no topo para a logo */
+    }
+
+
+    #formContainer {
+        flex: 1; /* Ocupa o espaço disponível */
+        width: 100%;
+        padding: 20px;
+    }
+
+    #explanationContainer {
+        flex: 1;
+        width: 100%; /* Ajuste para a largura */
+        margin-bottom: 600px; /* Espaçamento inferior */
+    }
+
+    .background-image {
+        max-width: 50%;
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        transform: translate(-50%, -50%);
+        width: 120vh;
+        opacity: 0.2;
+        z-index: -1;
+    }
+
+    .background-image-2 {
+        max-width: 50%;
+        position: absolute;
+        top: 70%;
+        left: 80%;
+        transform: translate(-50%, -50%);
+        width: 120vh;
+        opacity: 0.2;
+        z-index: -1;
+    }
+
+    .progress-container {
+        width: 90%;
+        margin: auto;
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 1.0;
+        z-index: -1;
+    }
+
+    .button24 {
+        position: absolute;
+        top: 20px; /* Ajuste a distância do topo conforme necessário */
+        right: 10px; /* Ajuste a distância da direita conforme necessário */
+        margin: 0;
+        opacity: 1.0;
+        z-index: 10; /* Garantir que esteja acima de outros elementos */
+    }
+
+    .buttons-container button {
+        flex: 1;
+        margin: 5px;
+    }
+
+    .main {
+        display: block;
+        position: fixed; /* Ajustar para fixed */
+        bottom: 0; /* Fixar na parte inferior da tela */
+        width: 100%; /* Largura total da tela */
+        z-index: 20; /* Acima de outros elementos */
+        background-color: transparent; /* Transparente para remover o fundo branco */
+        padding: 10px; /* Espaçamento interno */
+        box-shadow: none; /* Remover a sombra */
+    }
+
+    .up {
+        display: flex;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 10px;
+        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px 10px 0 0;
+    }
+    
+    .card1,
+    .card2 {
+        width: 150px; /* Largura fixa para os botões */
+        margin: 5px; 
+        padding: 5px; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+    
+    .card1 svg,
+.card2 svg {
+    margin-right: 5px; /* Adicionado espaçamento à direita */
+    width: 15px;
+    height: 15px;
+}
+
+.card1 h6,
+.card2 h6 {
+    font-size: 12px;
+    margin: 0;
+    white-space: nowrap; /* Evita que o texto quebre em várias linhas */
+}
+    
+    /* Estilos para os inputs customizados */
+    .custom-input-2 {
+        width: 90%; /* Define a largura dos inputs */
+        margin: 10px auto; /* Centraliza os inputs e adiciona margem vertical */
+        padding: 10px; 
+    }
+}

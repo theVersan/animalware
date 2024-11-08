@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Screen</title>
+    <link href="assets/styles/pages/adminscreen.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="sidebar">
+        <div>
+          <img class="logo" src="/images/logobranco.png" alt="Logo da página" />
+        </div>
+        <div class="sidebar-links">
+          <a href="#data"
+            >Dados coletados <ion-icon name="server"></ion-icon
+          ></a>
+          <a href="#animals">Animals <ion-icon name="paw"></ion-icon></a>
+          <a href="#others"
+            >Outros <ion-icon name="ellipsis-horizontal-circle"></ion-icon
+          ></a>
+        </div>
+        <div class="sidebar-logout">
+          <a href="#logout">Sair <ion-icon name="walk"></ion-icon></a>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="chart-grid">
+        <div class="chart-container" id="chart-top-left">
+          <canvas id="salesChart"></canvas>
+        </div>
+        <div class="chart-container" id="chart-top-right">
+          <canvas id="departmentSalesChart"></canvas>
+        </div>
+        <div class="chart-container" id="chart-bottom-left">
+          <canvas id="monthlySalesChart"></canvas>
+        </div>
+        <div class="chart-container" id="chart-bottom-right">
+          <canvas id="expensesChart"></canvas>
+        </div>
+      </div>
+    </div>
+    <script>
+      var ctx = document.getElementById("salesChart").getContext("2d");
+      var salesChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+          ],
+          datasets: [
+            {
+              label: "Sales",
+              data: [424652, 450000, 475000, 500000, 525000, 550000, 575000],
+              backgroundColor: "rgba(54, 162, 235, 0.2)",
+              borderColor: "rgba(54, 162, 235, 1)",
+              borderWidth: 1,
+            },
+            {
+              label: "Expenses",
+              data: [235312, 250000, 265000, 280000, 295000, 310000, 325000],
+              backgroundColor: "rgba(255, 99, 132, 0.2)",
+              borderColor: "rgba(255, 99, 132, 1)",
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
+      var ctx = document.getElementById("monthlySalesChart").getContext("2d");
+      var monthlySalesChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+          ],
+          datasets: [
+            {
+              label: "Clothing",
+              data: [50, 60, 70, 60, 70, 60, 70],
+              backgroundColor: "rgba(54, 162, 235, 0.2)",
+              borderColor: "rgba(54, 162, 235, 1)",
+              borderWidth: 1,
+            },
+            {
+              label: "Food Products",
+              data: [40, 50, 60, 50, 60, 50, 60],
+              backgroundColor: "rgba(255, 206, 86, 0.2)",
+              borderColor: "rgba(255, 206, 86, 1)",
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
+      var ctx = document
+        .getElementById("departmentSalesChart")
+        .getContext("2d");
+      var departmentSalesChart = new Chart(ctx, {
+        type: "pie",
+        data: {
+          labels: [
+            "Clothing",
+            "Food Products",
+            "Electronics",
+            "Kitchen Utility",
+            "Gardening",
+          ],
+          datasets: [
+            {
+              data: [23, 20, 15, 17, 25],
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+      });
+
+      var ctx = document.getElementById("expensesChart").getContext("2d");
+      var expensesChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+          ],
+          datasets: [
+            {
+              label: "Expenses",
+              data: [200000, 220000, 210000, 230000, 240000, 250000, 260000],
+              backgroundColor: "rgba(75, 192, 192, 0.2)",
+              borderColor: "rgba(75, 192, 192, 1)",
+              borderWidth: 1,
+            },
+          ],
+        },
+
+        // primeiro cria a rota chamada "dados/expensesbyonth" depois fazer um sql, que tr'as como mensal, e tratar o objeto no front
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

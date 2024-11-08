@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards Animados</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=League+Gothic&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "League Gothic", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at center, #79955D, #79955D);
+        }
+
+        .backgroundSelect-image {
+            position: absolute;
+            top: 70%;
+            left: 15%;
+            transform: translate(-50%, -50%);
+            width: 120vh;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .backgroundSelect-image-2 {
+            position: absolute;
+            top: 40%;
+            left: 87%;
+            transform: translate(-50%, -50%);
+            width: 120vh;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .logoSelect {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            width: 50vh;
+        }
+
+        @media (max-width: 768px) {
+            .logoSelect {
+             width: 50%; /* Reduz a largura da logo em telas menores */
+            }
+        }
+
+
+        .columns {
+            display: flex;
+            justify-content: center;
+            /* Centraliza os .column na tela */
+            width: 100%;
+            /* Ocupa toda a largura disponível */
+            gap: 10px;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            max-width: 300px;
+            /* Ajuste opcional */
+        }
+
+        .cardSelect {
+            perspective: 1000px;
+            width: 300px;
+            height: 200px;
+            cursor: pointer;
+            background-color: rgba(0, 255, 255, 0);
+            margin: 20px;
+            position: relative;
+        }
+
+
+        .cardSelect-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .cardSelect:hover .cardSelect-inner {
+            transform: rotateY(180deg);
+        }
+
+        .cardSelect-front,
+        .cardSelect-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .cardSelect-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: filter 0.6s;
+        }
+
+        @media (max-width: 768px) {
+    .new-cardSelect {
+        font-size: 3vh; /* Reduz o tamanho da fonte em telas menores */
+    }
+}
+
+
+        .cardSelect:hover .cardSelect-front img {
+            filter: blur(5px);
+        }
+
+        .cardSelect-front h3 {
+            position: absolute;
+            bottom: 10px;
+            margin: 0;
+            font-size: 1.5em;
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .cardSelect-back {
+            background-color: #000000;
+            color: white;
+            transform: rotateY(180deg);
+            padding: 20px;
+            text-align: center;
+            line-height: 1.5;
+            font-size: 1.5em;
+        }
+
+        .cardSelect-back p {
+            margin: 0;
+        }
+
+        /* Novo Card */
+        .new-cardSelect {
+            position: absolute;
+            bottom: 100;
+            left: 0;
+            width: auto;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.489);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 5vh;
+            color: white;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            transition: opacity 1.2s;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            opacity: 0;
+        }
+
+        .new-cardSelect .text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.489);
+            border-radius: 0 15px;
+            font-size: 18px;
+            color: white;
+        }
+
+        .cardSelect:hover .new-cardSelect {
+            opacity: 0;
+        }
+
+        .cardSelect:hover .new-cardSelect {
+            opacity: 0;
+            display: none;
+        }
+
+        .confirmation-messageSelect {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            display: none;
+        }
+
+        .confirmation-messageSelect h2 {
+            margin-bottom: 10px;
+        }
+
+        .confirmation-messageSelect button {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #79955D;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .confirmation-messageSelect button:hover {
+            background-color: #5b7e3a;
+        }
+
+        @media (max-width: 768px) {
+    .new-cardSelect {
+        font-size: 3vh; /* Reduz o tamanho da fonte em telas menores */
+    }
+
+    .columns {
+        display: block; /* Altera o display para block para os cards ficarem em lista */
+        text-align: center; /* Centraliza os cards na tela */
+    }
+
+    .column {
+        max-width: 100%; /* Ocupa toda a largura disponível */
+    }
+
+    .cardSelect {
+        perspective: 1000px;
+        width: 40vh; /* Ajusta a largura para ocupar toda a largura da coluna */
+        max-width: 40vh; /* Largura máxima igual à largura da coluna */
+        height: 15vh; /* Altura automática baseada no conteúdo */
+        cursor: pointer;
+        background-color: rgba(0, 255, 255, 0);
+        margin: 10px 0; /* Reduzi a margem vertical entre os cards */
+        position: relative;
+    }
+
+    .cardSelect-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+    }
+
+    .cardSelect-front,
+    .cardSelect-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 15px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .cardSelect-front img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: filter 0.6s;
+    }
+
+    .cardSelect-front h3 {
+        position: absolute;
+        bottom: 10px;
+        margin: 0;
+        font-size: 3em;
+        color: #ffffff;
+        background-color: rgba(255, 255, 255, 0);
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    .cardSelect-back {
+        background-color: #000000;
+        color: white;
+        transform: rotateY(180deg);
+        padding: 20px;
+        text-align: center;
+        line-height: 1.5;
+        font-size: 1.5em; /* Corrigi a unidade de medida para o tamanho da fonte */
+    }
+
+    .new-cardSelect {
+        position: relative; /* Muda a posição para relativa para ficar dentro do fluxo do card */
+        width: 100%;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.489);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2vh; /* Tamanho de fonte ajustável */
+        color: white;
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+        transition: opacity 1.2s;
+    }
+
+    .cardSelect:hover .new-cardSelect {
+        opacity: 0; /* Esconde o novo card ao passar o mouse */
+    }
+
+    .confirmation-messageSelect {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        display: none;
+    }
+
+    .confirmation-messageSelect h2 {
+        margin-bottom: 10px;
+    }
+
+    .confirmation-messageSelect button {
+        margin-top: 10px;
+        padding: 8px 16px;
+        background-color: #79955D;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .confirmation-messageSelect button:hover {
+        background-color: #5b7e3a;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <img src="https://i.ibb.co/q0rcgFc/Time-12.png" class="logoSelect" alt="Logo">
+    <div class="columns">
+        <div class="column">
+            <div class="cardSelect" onclick="location.href='/formPassado'">
+                <div class="cardSelect-inner">
+                    <div class="cardSelect-front">
+                        <img src="https://i.ibb.co/QYxkGS9/Design-sem-nome-21.png" alt="Imagem 1">
+                    </div>
+                    <div class="cardSelect-back">
+                        <p>Esse formulário é para usuários que tiveram experiências anteriores com cachorros ou
+                            compartilharam seu espaço com eles.</p>
+                    </div>
+                    <div class="new-cardSelect">
+                        Já tive cachorro(s)
+                    </div>
+                </div>
+            </div>
+            <div class="cardSelect" onclick="location.href='/formpresente'">
+                <div class="cardSelect-inner">
+                    <div class="cardSelect-front">
+                        <img src="https://media.istockphoto.com/id/1516239450/pt/foto/love-portrait-and-family-with-dog-at-animal-shelter-for-adoption-at-kennel.jpg?s=612x612&w=0&k=20&c=9oCK5bCnT14NLprrwzCj574kLJWLj4-LSknPnId4ihI="
+                            alt="Imagem 2">
+                        <h3></h3>
+                    </div>
+                    <div class="cardSelect-back">
+                        <p>Esse formulário é para usuários que possuem ou convivem com cachorros atualmente.</p>
+                    </div>
+                    <div class="new-cardSelect">
+                        Tenho cachorro(s)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="cardSelect" onclick="location.href='/formfuturo'">
+                <div class="cardSelect-inner">
+                    <div class="cardSelect-front">
+                        <img src="https://media.istockphoto.com/id/1997874014/pt/foto/young-woman-carrying-her-dog-while-shopping.jpg?s=612x612&w=0&k=20&c=JePtTk0FG5khvaeNL2LzgzMd68cPQu6VUt1kq42LvQQ="
+                            alt="Imagem 3">
+                    </div>
+                    <div class="cardSelect-back">
+                        <p>Esse formulário é para usuários que nunca tiveram ou conviveram com cachorros, porém pensam
+                            em ter futuramente</p>
+                    </div>
+                    <div class="new-cardSelect">
+                        Nunca tive cachorro
+                    </div>
+                </div>
+            </div>
+            <div class="cardSelect" onclick="location.href='/formnulo'">
+                <div class="cardSelect-inner">
+                    <div class="cardSelect-front">
+                        <img src="https://media.istockphoto.com/id/185325543/pt/foto/sou-de-aqui.jpg?s=612x612&w=0&k=20&c=7NlX8yz7_9mK1_oCWofh1Jwb7lHILzyvloFgWKgveAA="
+                            alt="Imagem 4">
+                    </div>
+                    <div class="cardSelect-back">
+                        <p>Esse formulário é para aqueles usuários que nunca tiveram ou conviveram com cachorros e não
+                            pensam em ter futuramente</p>
+                    </div>
+                    <div class="new-cardSelect">
+                        Nunca tive e nem pretendo ter cachorro
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="confirmation-messageSelect" id="confirmationMessage">
+        <h2>Confirmação</h2>
+        <p>Tem certeza de que deseja prosseguir?</p>
+        <button id="confirmButton">Sim</button>
+        <button id="cancelButton">Cancelar</button>
+    </div>
+    <script>
+        document.addEventListener('mousemove', function (e) {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            const gradient = `radial-gradient(circle at ${x * 100}% ${y * 100}%, #5b7e3a, #79955D)`;
+            document.body.style.background = gradient;
+        });
+
+        function showConfirmationMessage() {
+            document.getElementById('confirmationMessage').style.display = 'block';
+        }
+
+        function redirectToPage(page) {
+            window.location.href = page;
+        }
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', function () {
+                showConfirmationMessage();
+                document.getElementById('confirmButton').addEventListener('click', function () {
+                    const nextPage = this.dataset.nextPage;
+                    redirectToPage(nextPage);
+                });
+                document.getElementById('cancelButton').addEventListener('click', function () {
+                    document.getElementById('confirmationMessage').style.display = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

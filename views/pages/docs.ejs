@@ -1,0 +1,30 @@
+<h1>Populate Database</h1>
+    <div id="feedback"></div>
+    <button id="populateButton">Testar Requisição</button>
+
+    <script>
+        document.getElementById("populateButton").addEventListener("click", function() {
+            fetch("/users/populate", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    full_name: "John Doe",
+                    phone: "123456789",
+                    email: "john@example.com"
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById("feedback").innerHTML = "Dados inseridos com sucesso.";
+                } else {
+                    document.getElementById("feedback").innerHTML = "Falha ao inserir dados.";
+                }
+            })
+            .catch(error => {
+                console.error("Erro:", error);
+                document.getElementById("feedback").innerHTML = "Erro ao enviar requisição.";
+            });
+        });
+    </script>

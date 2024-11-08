@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FormUser</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../assets/styles/pages/forms.css" rel="stylesheet" />
+</head>
+
+<body style="background-color: #79955D; overflow: hidden;">
+    <div>
+        <img src="https://i.ibb.co/LYGKHwh/2c436b16-b779-4a4d-83ab-da010a188a10.png" class="logoDesk">
+        <img src="https://i.ibb.co/cb9MGVR/PATAAAA.png" class="background-image">
+        <img src="https://i.ibb.co/cb9MGVR/PATAAAA.png" class="background-image-2">
+    </div>
+    <div id="elementosCentro" class="elementosCentro">
+        <div id="formContainer" class="space-y-4"></div>
+        <div id="explanationContainer" class="textoAjuda"><!-- Aqui serão exibidas as explicações --></div>
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        <div class="buttons">
+            <button class="cta" id="prevBtn">
+                <svg width="15px" height="10px" viewBox="0 0 13 10">
+                    <path d="M12,5 L2,5"></path>
+                    <polyline points="5 1 1 5 5 9"></polyline>
+                </svg>
+                <span>Anterior</span>
+            </button>
+            <button class="cta" id="nextBtn">
+                <span>Próximo</span>
+                <svg width="15px" height="10px" viewBox="0 0 13 10">
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <button class="button24">
+        <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 973.1 973.1" xml:space="preserve">
+            <g>
+                <path d="M502.29,788.199h-47c-33.1,0-60,26.9-60,60v64.9c0,33.1,26.9,60,60,60h47c33.101,0,60-26.9,60-60v-64.9 C562.29,815,535.391,788.199,502.29,788.199z"/>
+                <path d="M170.89,285.8l86.7,10.8c27.5,3.4,53.6-12.4,63.5-38.3c12.5-32.7,29.9-58.5,52.2-77.3c31.601-26.6,70.9-40,117.9-40 c48.7,0,87.5,12.8,116.3,38.3c28.8,25.6,43.1,56.2,43.1,92.1c0,25.8-8.1,49.4-24.3,70.8c-10.5,13.6-42.8,42.2-96.7,85.9 c-54,43.7-89.899,83.099-107.899,118.099c-18.4,35.801-24.8,75.5-26.4,115.301c-1.399,34.1,25.8,62.5,60,62.5h49 c31.2,0,57-23.9,59.8-54.9c2-22.299,5.7-39.199,11.301-50.699c9.399-19.701,33.699-45.701,72.699-78.1 C723.59,477.8,772.79,428.4,795.891,392c23-36.3,34.6-74.8,34.6-115.5c0-73.5-31.3-138-94-193.4c-62.6-55.4-147-83.1-253-83.1 c-100.8,0-182.1,27.3-244.1,82c-52.8,46.6-84.9,101.8-96.2,165.5C139.69,266.1,152.39,283.5,170.89,285.8z"/>
+            </g>
+        </svg>
+    </button>
+
+    <div class="main" style="display: none;">
+        <div class="up">
+            <button class="card1">
+                <svg height="15px" width="15px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 206.505 206.505" xml:space="preserve">
+                    <g>
+                        <path style="fill:#010002;"
+                            d="M167.069,16.354c-0.426,0.186-43.29,18.671-70.274-4.481c-31.021-26.619-60.722-0.2-61.012,0.072
+                        L34.623,13l-0.179,193.494l7.108,0.011l0.115-122.594c5.157-4.091,27.11-19.086,50.498,0.988
+                        c30.356,26.047,75.839,6.438,77.765,5.59l2.133-0.938V14.153L167.069,16.354z M164.943,84.824
+                        c-8.997,3.389-44.603,14.874-68.148-5.322c-10.375-8.904-20.6-11.871-29.629-11.871c-10.815,0-19.923,4.266-25.489,7.702
+                        l0.047-59.101c5.264-4.169,27.142-18.961,50.44,1.034c24.855,21.323,59.863,12.043,72.78,7.516V84.824z" />
+                    </g>
+                </svg>
+              <h6>Relatar um problema</h6>
+            </button>
+            <button class="card2">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280.000000 640.000000" padding
+                    width="5vh" height="5vh" preserveAspectRatio="xMidYMid meet">
+                    <g transform="translate(0.000000,640.000000) scale(0.100000,-0.100000)" fill="#000000"
+                        stroke="none">
+                        <path
+                            d="M9960 5774 c-25 -2 -106 -8 -180 -14 -352 -29 -767 -103 -1450 -260 -1060 -244 -1395 -295 -1930 -295 -479 1 -669 31 -1475 235 -214 54 -436 108 -492 119 -263 54 -939 156 -1248 188 -243 25 -811 25 -1015 0 -341 -42 -640 -103 -1270 -259 -223 -55 -512 -124 -643 -153 -131 -29 -241 -55 -243 -58 -3 -3 -6 -148 -7 -323 -3 -496 1 -509 270 -860 109 -142 177 -257 207 -348 9 -27 30 -112 46 -188 126 -588 305 -1192 521 -1756 107 -279 199 -425 374 -590 274 -259 730 -464 1205 -541 216 -35 365 -44 628 -38 626 15 1009 129 1390 414 103 77 304 273 396 387 222 274 434 635 621 1058 109 248 133 321 225 713 70 294 120 456 175 565 55 109 72 130 133 158 55 25 58 25 236 19 255 -10 249 -8 328 -87 55 -55 76 -86 126 -190 64 -132 91 -214 167 -505 168 -638 406 -1174 696 -1570 98 -133 357 -391 479 -477 705 -497 1693 -616 2488 -299 614 245 1043 709 1267 1371 70 206 113 374 210 811 137 620 197 833 276 993 63 126 107 180 239 285 79 64 98 151 81 386 -7 96 -6 177 1 258 18 197 -10 286 -109 339 -32 18 -102 38 -194 58 -151 31 -269 64 -599 169 -271 86 -425 122 -800 186 -480 81 -601 95 -860 99 -124 2 -245 2 -270 0z m-6185 -435 c226 -20 496 -78 761 -163 566 -183 884 -419 1017 -756 49 -125 67 -234 68 -415 0 -213 -36 -428 -121 -720 -73 -249 -249 -708 -360 -942 -310 -651 -793 -1072 -1414 -1234 -415 -108 -913 -94 -1386 38 -449 125 -790 448 -985 933 -88 219 -217 707 -284 1075 -95 519 -117 1069 -53 1310 113 422 450 655 1122 774 129 23 523 74 705 91 315 30 658 33 930 9z m6215 -5 c215 -18 455 -47 662 -79 586 -91 924 -250 1103 -519 116 -176 145 -292 152 -621 11 -492 -62 -987 -243 -1645 -69 -255 -102 -347 -178 -505 -103 -214 -208 -360 -359 -500 -177 -165 -375 -269 -637 -335 -783 -196 -1489 -85 -2033 321 -339 253 -597 614 -807 1130 -277 680 -390 1119 -377 1469 3 74 12 171 22 215 91 438 472 744 1173 944 327 93 515 125 867 145 110 6 478 -5 655 -20z" />
+                    </g>
+                </svg>
+                <h6>Modo Míope</h6>
+            </button>
+
+
+        </div>
+    </div>
+    <div class="loading" id="loading">Enviando...</div>
+    <div class="alert" id="alertBox"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const formContainer = document.getElementById('formContainer');
+          const nextBtn = document.getElementById('nextBtn');
+          const prevBtn = document.getElementById('prevBtn');
+          const progressBar = document.querySelector('.progress-bar');
+          const explanationContainer = document.getElementById('explanationContainer');
+          const alertBox = document.getElementById('alertBox');
+          const loading = document.createElement('div'); // Adicionei a criação do loading
+
+          const questions = [
+    { id: 'idUser', label: 'ID do usuário', type: 'number', placeholder: 'ID do usuário', inputClass: 'custom-input-2', explanation: 'Informe o ID único do usuário.' },
+    { id: 'id_contact_users', label: 'ID contact user', type: 'number', placeholder: 'ID contact users', inputClass: 'custom-input-2', explanation: 'Informe o ID de contato do usuário.' },
+    { id: 'dog_name', label: 'Qual era o nome do cachorro?', type: 'text', placeholder: 'digite aqui', inputClass: 'custom-input-2', explanation: 'Neste campo você deve indicar o nome do cachorro.' },
+    { id: 'onwer', label: 'Pertence a você ou a outro membro da família?', type: 'select', options: [{ value: 'Sou o dono', label: 'Sou o dono' }, { value: 'Pertence a outro membro da família', label: 'Pertence a outro membro da família' }], inputClass: 'custom-input-2', explanation: 'Indique se o cachorro era seu ou de outro membro da família.' },
+    { id: 'dog_personality', label: 'Como você descreve a personalidade desse cão?', type: 'text', placeholder: 'descreva aqui', inputClass: 'custom-input-2', explanation: 'Descreva como era a personalidade do cachorro.' },
+    { id: 'time_with_the_dog', label: 'Ele esteve com você durante quanto tempo?', type: 'text', placeholder: 'Ex: 1 ano', inputClass: 'custom-input-2', explanation: 'Informe o tempo que o cachorro esteve com você.' },
+    { id: 'first_dog_question', label: 'Foi seu primeiro cão?', type: 'select', options: [{ value: 'Sim', label: 'Sim' }, { value: 'Não', label: 'Não' }], inputClass: 'custom-input-2', explanation: 'Indique se este foi o seu primeiro cachorro.' },
+    { id: 'pets_in_home', label: 'Haviam outros pets na casa? Se sim, era cão ou gato?', type: 'select', options: [{ value: 'Sim, cachorro(s)', label: 'Sim, cachorro(s)' }, { value: 'Sim, gato(s)', label: 'Sim, gato(s)' }, { value: 'Gato(s) e cachorro(s)', label: 'Sim, gato(s) e cachorro(s)' }, { value: 'Não haviam outros pets', label: 'Não haviam outros pets' }], inputClass: 'custom-input-2', explanation: 'Informe se havia outros pets na casa e, em caso afirmativo, se eram cães ou gatos.' },
+    { id: 'dog_arrived_age', label: 'Quantos anos tinha seu Pet ao ser incluído na casa?', type: 'select', options: [{ value: '<3 meses', label: 'Menos de 3 meses' }, { value: '3 a <6meses', label: 'De 3 a 5 meses' }, { value: '9 a <12 meses', label: 'De 6 a 8 meses' }, { value: '9 a 11 meses', label: 'De 9 a 11 meses' }, { value: '1 a2 anos', label: 'De 1 a 2 anos' }, { value: '2>', label: 'De 2 anos ou mais' }, { value: 'Não soube responder', label: 'Não sei informar' }], inputClass: 'custom-input-2', explanation: 'Informe a idade do cachorro ao ser incluído na casa.' },
+    { id: 'neutered', label: 'Era castrado?', type: 'select', options: [{ value: 'Sim', label: 'Sim' }, { value: 'Não', label: 'Não' }, { value: 'Não sei', label: 'Não sei' }], inputClass: 'custom-input-2', explanation: 'Indique se o cachorro era castrado.' },
+    { id: 'dog_breed', label: 'O cão que você teve era:', type: 'select', options: [{ value: 'De raça', label: 'De raça' }, { value: 'Sem raça definida', label: 'Sem raça definida' }, { value: 'Mistura de raças', label: 'Mistura de raças' }, { value: 'Não sei', label: 'Não sei' }], inputClass: 'custom-input-2', explanation: 'Informe se o cachorro era de raça, sem raça definida, uma mistura de raças, ou se você não sabe.' },
+    { id: 'reasons_of_last_contact', label: 'Razão do último contato:', type: 'text', placeholder: 'Escreva aqui a razão', inputClass: 'custom-input-2', explanation: 'Descreva a razão do último contato com o cachorro.' },
+    { id: 'dog_origin', label: 'De onde veio o cachorro?', type: 'select', options: [{ value: 'Criador', label: 'Criador' }, { value: 'Amigo', label: 'Amigo' }, { value: 'Abrigo', label: 'Abrigo' }, { value: 'Vizinho', label: 'Vizinho' }, { value: 'Nascido em casa', label: 'Nascido em casa' }, { value: 'Perdido', label: 'Encontrado como perdido' }, { value: 'Loja', label: 'Loja de animais' }, { value: 'On-line', label: 'On-line' }, { value: 'Outro', label: 'Outro' }], inputClass: 'custom-input-2', explanation: 'Informe a origem do cachorro.' },
+    { id: 'dog_price', label: 'Qual o valor pago pelo pet?', type: 'select', options: [{ value: 'Sem custo', label: 'Sem custo' }, { value: 'R$ 50 – 150 reais', label: 'R$ 50 – 150 reais' }, { value: 'R$ 150- 300 reais', label: 'R$ 150- 300 reais' }, { value: ' R$ 500- 1000 reais', label: ' R$ 500- 1000 reais' }, { value: 'R$ 1000-2000 reais', label: 'R$ 1000-2000 reais' }, { value: ' R$ 2000-4000 reais', label: 'R$ 2000-4000 reais' }, { value: 'R$ 5000 ou mais', label: 'R$5000 ou mais' }, { value: 'Não sei', label: 'Não sei' }], inputClass: 'custom-input-2', explanation: 'Informe o valor pago pelo cachorro, se houver.' },
+    { id: 'dog_reason', label: 'Por que você comprou, adotou ou incluiu?', type: 'select', options: [{ value: 'Companhia para crianças', label: 'Companhia para crianças' }, { value: 'Acompanhamento para adulto(s)', label: 'Acompanhamento para adulto(s)' }, { value: 'Por sua aparência', label: 'Por sua aparência' }, { value: 'Companhia para outro animal de estimação', label: 'Companhia para outro animal de estimação' }, { value: 'Ensinar responsabilidade às crianças', label: 'Ensinar responsabilidade às crianças' }, { value: 'Por influência de amigos ou família', label: 'Por influência de amigos ou família' }, { value: 'Para proteção da residência ou de pessoas', label: 'Para proteção da residência ou de pessoas' }, { value: 'Para ajudar um amigo/conhecido que não conseguiu ficar com o cachorro', label: 'Para ajudar um amigo/conhecido que não conseguiu ficar com o cachorro' }, { value: 'Por compaixão ou para salvar sua vida', label: 'Por compaixão ou para salvar sua vida' }, { value: 'Outros', label: 'Outros' }], inputClass: 'custom-input-2', explanation: 'Informe a razão pela qual você adquiriu, adotou ou incluiu o cachorro na sua vida.' },
+    { id: 'dog_characteristics', label: 'Quais características que o Pet tinha que o levaram a selecioná-lo ou concordarem mantê-lo?', type: 'text', placeholder: 'descreva aqui', inputClass: 'custom-input-2', explanation: 'Descreva as características do cachorro que o levaram a selecioná-lo ou a decidir mantê-lo.' },
+    { id: 'people_in_decision', label: 'Quem esteve envolvido na decisão (nome do cachorro)?', type: 'select', options: [{ value: 'Só você estava', label: 'Só você estava' }, { value: 'Seu companheiro (a)', label: 'Seu companheiro (a)' }, { value: 'Toda a família (incluindo crianças)', label: 'Toda a família (incluindo crianças)' }, { value: 'Seus pais', label: 'Seus pais' }, { value: 'Seus pais em consulta com você', label: 'Seus pais em consulta com você' }, { value: 'outros', label: 'outros' }], inputClass: 'custom-input-2', explanation: 'Indique quem esteve envolvido na decisão do nome do cachorro.' },
+    { id: 'other_people', label: 'Quais outras pessoas estavam envolvidas na decisão do nome?', type: 'text', placeholder: 'descreva aqui', inputClass: 'custom-input-2', explanation: 'Descreva quais outras pessoas estavam envolvidas na decisão do nome do cachorro.' },
+    { id: 'most_like', label: 'Pensando nas primeiras semanas depois da inclusão o que você gostava mais nele/ela?', type: 'text', placeholder: 'descreva aqui', inputClass: 'custom-input-2', explanation: 'Descreva o que você mais gostava no cachorro nas primeiras semanas depois da inclusão.' },
+    { id: 'dislike', label: 'Pensando nas primeiras semanas depois da inclusão o que você gostava menos nele/ela?', type: 'text', placeholder: 'descreva aqui', inputClass: 'custom-input-2', explanation: 'Descreva o que você menos gostava no cachorro nas primeiras semanas depois da inclusão.' },
+    { id: 'go_to_vet', label: 'O Pet foi ao veterinário enquanto esteve com você?', type: 'select', options: [{ value: 'Sim', label: 'Sim' }, { value: 'Não', label: 'Não' }], inputClass: 'custom-input-2', explanation: 'Indique se o pet foi levado ao veterinário enquanto estava com você.' },
+    { id: 'vet_frequency', label: 'Quantas vezes você levou o pet ao veterinário? E quais foram os motivos?', type: 'text', placeholder: 'Ex: 2 vezes para tomar vacina', inputClass: 'custom-input-2', explanation: 'Informe quantas vezes o pet foi levado ao veterinário e os motivos das visitas.' },
+    { id: 'last_contact', label: 'Qual a data em que você deixou de conviver com ele?', type: 'text', placeholder: 'Ex: Em agosto de 2023', inputClass: 'custom-input-2', explanation: 'Informe a data em que você deixou de conviver com o pet.' },
+    { id: 'dog_age_in_last_contact', label: 'Qual a idade dele na época que deixou de conviver?', type: 'text', placeholder: 'Ex: 3 anos', inputClass: 'custom-input-2', explanation: 'Informe a idade do pet quando você deixou de conviver com ele.' },
+    { id: 'reasons_last_contact', label: 'Por quais motivos deixou de conviver com ele?', type: 'text', placeholder: 'Descreva aqui', inputClass: 'custom-input-2', explanation: 'Descreva os motivos pelos quais você deixou de conviver com o pet.' },
+    { id: 'would_have_new_dog', label: 'Você conviveria com um novo cão?', type: 'select', options: [{ value: 'Sim', label: 'Sim' }, { value: 'Não', label: 'Não' }], inputClass: 'custom-input-2', explanation: 'Indique se você consideraria ter um novo cão.' },
+    { id: 'first_impression_of_dog', label: 'Qual foi a primeira impressão do cachorro?', type: 'text', placeholder: 'Primeira impressão', inputClass: 'custom-input-2', explanation: 'Descreva a sua primeira impressão do cachorro.' },
+    { id: 'reason_of_last_contact', label: 'Razão do último contato:', type: 'text', placeholder: 'Razão do último contato', inputClass: 'custom-input-2', explanation: 'Informe a razão do último contato com o pet.' }
+];
+let qtdCaes = { id: 'qtd_caes', label: 'Quantos cachorros?', type: 'number', placeholder: 'Quantidade', inputClass: 'custom-input-2', explanation: 'Informe a quantidade de cachorros.' };
+let qtdGatos = { id: 'qtd_gatos', label: 'Quantos gatos?', type: 'number', placeholder: 'Quantidade', inputClass: 'custom-input-2', explanation: 'Informe a quantidade de gatos.' };
+let racaDefinida = { id: 'breed_defined', label: 'Qual era a raça do cachorro?', placeholder: 'Raça', inputClass: 'custom-input-2', explanation: 'Informe a raça do cachorro.' };
+let ageNeutered = { id: 'age_neutered', label: 'quantos meses/anos ele/ela tinha aproximadamente ao ser castrado? ', type: 'text', placeholder: 'Ex: 8 meses', inputClass: 'custom-input-2', explanation: 'Informe a idade aproximada do cachorro ao ser castrado.' };
+let vetFrequency = { id: 'vet_frequency', label: 'Com que frequência o cachorro ia ao veterinário?', type: 'text', placeholder: 'Frequência ao veterinário', inputClass: 'custom-input-2', explanation: 'Informe a frequência com que o cachorro era levado ao veterinário.' };
+let because = { id: 'other_reasons', label: 'Caso tenha selecionado "outros", descreva os motivos/circunstânias', type: 'text', placeholder: 'descreva aqui', inputClass: 'custom-input-2', explanation: 'Descreva os motivos ou circunstâncias caso tenha selecionado "outros".' };
+let nao =  { id: 'reason_no', label: 'Por que não?', type: 'text', placeholder: 'Descreva aqui', inputClass: 'custom-input-2', explanation: 'Descreva os motivos para a resposta negativa.' };
+let sim =  { id: 'reason_yes', label: 'Por que?', type: 'text', placeholder: 'Descreva aqui', inputClass: 'custom-input-2', explanation: 'Descreva os motivos para a resposta afirmativa.' };
+let outro = { id: 'other', label: 'Qual a origem?', type: 'text', placeholder: 'Origem', inputClass: 'custom-input-2', explanation: 'Informe a origem do cachorro.' };
+
+let dynamicQuestions = [];
+let currentQuestionIndex = 0;
+const responses = {};
+
+function showAlert(message, type = 'error') {
+    if (!alertBox) {
+        console.error("Elemento alertBox não encontrado.");
+        return;
+    }
+    alertBox.textContent = message;
+    alertBox.className = `alert ${type === 'success' ? 'success' : ''}`;
+    alertBox.style.display = 'block';
+    setTimeout(() => {
+        alertBox.style.display = 'none';
+    }, 3000);
+}
+
+function showQuestion(index) {
+    const question = questions[index];
+    let inputElement;
+
+    if (question.type === 'select') {
+        inputElement = document.createElement('select');
+        question.options.forEach(option => {
+            const optionElement = document.createElement('option');
+            optionElement.value = option.value;
+            optionElement.textContent = option.label;
+            inputElement.appendChild(optionElement);
+        });
+    } else {
+        inputElement = document.createElement('input');
+        inputElement.type = question.type;
+        inputElement.placeholder = question.placeholder || '';
+    }
+
+    inputElement.id = question.id;
+    inputElement.className = question.inputClass;
+
+    formContainer.innerHTML = `
+        <div class="${question.layout || ''}">
+            <label for="${question.id}" style="${question.style || ''}" class="custom-label">${question.label}</label>
+        </div>
+    `;
+    formContainer.querySelector('div').appendChild(inputElement);
+
+    if (responses[question.id] !== undefined) {
+        if (question.type === 'checkbox') {
+            inputElement.checked = responses[question.id] === 'true';
+        } else {
+            inputElement.value = responses[question.id];
+        }
+    }
+
+    prevBtn.style.display = index === 0 ? 'none' : 'inline-block';
+    nextBtn.innerHTML = index === questions.length - 1
+        ? '<span>Enviar</span>'
+        : '<span>Próximo</span><svg width="15px" height="10px" viewBox="0 0 13 10"><path d="M1,5 L11,5"></path><polyline points="8 1 12 5 8 9"></polyline></svg>';
+    inputElement.focus();
+
+    showExplanation(index);
+    updateProgressBar(index);
+}
+
+async function handleFormSubmit() {
+    const currentQuestion = questions[currentQuestionIndex];
+    const input = document.getElementById(currentQuestion.id);
+    const value = currentQuestion.type === 'checkbox' ? input.checked.toString() : input.value.trim();
+    if (!value && currentQuestion.type !== 'checkbox') {
+        alert('Por favor, preencha este campo.');
+        return;
+    }
+
+    if (currentQuestion.id === 'would_have_new_dog' && (value === 'Sim')) {
+        if (!questions.some(q => q.id === 'reason_yes')) {
+            dynamicQuestions.push(sim);
+            questions.splice(currentQuestionIndex + 1, 0, sim);
+        }
+    }
+
+    if (currentQuestion.id === 'would_have_new_dog' && (value === 'Não')) {
+        if (!questions.some(q => q.id === 'reason_no')) {
+            dynamicQuestions.push(nao);
+            questions.splice(currentQuestionIndex + 1, 0, nao);
+        }
+    }
+
+    if (currentQuestion.id === 'pets_in_home' && (value === 'Sim, cachorro(s)')) {
+        if (!questions.some(q => q.id === 'qtd_caes')) {
+            dynamicQuestions.push(qtdCaes);
+            questions.splice(currentQuestionIndex + 1, 0, qtdCaes);
+        }
+    }
+
+    // Adicione o restante das condições dinâmicas aqui
+
+    responses[currentQuestion.id] = value;
+    if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        showQuestion(currentQuestionIndex);
+    } else {
+        console.log('Enviando dados:', JSON.stringify(responses));
+        loading.style.display = 'block';
+        try {
+            const response = await fetch('HadDogsOrLivedWith/create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(responses)
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(`Error: ${errorData.error}`);
+            }
+
+            const data = await response.json();
+            alert('Formulário enviado com sucesso!', 'success');
+            setTimeout(function () {
+                window.location.href = '/';
+                console.log("Passaram-se 10 segundos!");
+            }, 15000);
+        } catch (error) {
+            console.error('Erro ao enviar o formulário:', error);
+            alert('Houve um problema ao enviar o formulário.');
+        } finally {
+            loading.style.display = 'none';
+        }
+    }
+}
+
+function showExplanation(index) {
+    explanationContainer.innerHTML = '';
+    const explanation = questions[index].explanation;
+    const explanationElement = document.createElement('div');
+    explanationElement.innerHTML = `
+        <div class="question-explanation">
+            <img class="question-explanation-icon" src="https://cdn-icons-png.freepik.com/128/3409/3409564.png?" alt="Descrição da imagem">
+            <span>${explanation}</span>
+        </div>
+    `;
+    explanationContainer.appendChild(explanationElement);
+}
+
+function updateProgressBar(index) {
+    const progressPercentage = ((index + 1) / questions.length) * 100;
+    progressBar.style.width = `${progressPercentage}%`;
+}
+
+nextBtn.addEventListener('click', () => {
+    handleFormSubmit();
+    updateProgressBar(currentQuestionIndex);
+});
+
+prevBtn.addEventListener('click', () => {
+    if (currentQuestionIndex > 0) {
+        if (dynamicQuestions.length > 0 && dynamicQuestions.includes(questions[currentQuestionIndex])) {
+            questions.splice(currentQuestionIndex, 1);
+            currentQuestionIndex--;
+            const index = dynamicQuestions.indexOf(questions[currentQuestionIndex]);
+            if (index > -1) {
+                dynamicQuestions.splice(index, 1);
+            }
+        } else {
+            currentQuestionIndex--;
+        }
+        showQuestion(currentQuestionIndex);
+        updateProgressBar(currentQuestionIndex);
+    }
+});
+
+formContainer.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        handleFormSubmit();
+        updateProgressBar(currentQuestionIndex);
+    }
+});
+
+// Adicionar lógica para alternar a exibição do formulário
+document.querySelector('.button24').addEventListener('click', function() {
+    const main = document.querySelector('.main');
+    if (main.style.display === 'block') {
+        main.style.display = 'none';
+    } else {
+        main.style.display = 'block';
+    }
+});
+
+showQuestion(currentQuestionIndex);
+updateProgressBar(currentQuestionIndex);
+showExplanation(currentQuestionIndex);
+
+
+        
+      });
+  </script>
+</body>
+</html>

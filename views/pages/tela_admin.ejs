@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abandono Zero Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 45vh;
+            background-color: #94a84d;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* Fonte estilizada */
+        }
+
+        .logo-imagem {
+            width: 100%;
+            height: auto;
+            max-width: 400px; /* Ajustar a largura máxima da logo */
+            margin-bottom: 10px;
+        }
+
+        .profile p, .profile h2, .menu h3, .menu ul li, .footer p {
+            margin: 5px 0;
+            text-align: center;
+            font-weight: bold; /* Texto em negrito */
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centraliza verticalmente */
+            height: calc(100% - 250px); /* Ajusta a altura para ocupar o espaço restante */
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center; /* Centraliza os itens horizontalmente */
+        }
+
+        .menu ul li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centraliza os itens horizontalmente */
+            transition: background-color 0.3s; /* Animação de hover */
+        }
+
+        .menu ul li:hover {
+            background-color: #7a8d39;
+            cursor: pointer;
+        }
+
+        .menu ul li img {
+            margin-right: 10px;
+            width: 15%; /* Tamanho definido */
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .footer {
+            margin-top: auto; /* Coloca o rodapé na parte inferior da barra lateral */
+            margin-top: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centraliza verticalmente os itens */
+            background-color: transparent; /* Remove o fundo */
+            padding: 10px; /* Adiciona um pequeno espaçamento interno */
+        }
+
+        .footer p {
+            margin: 10px 0;
+            text-align: center; /* Centraliza o texto horizontalmente */
+            color: white; /* Define a cor do texto */
+        }
+
+        .main-content {
+            margin-left: 270px;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .charts {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .chart-container {
+            width: 600px;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="visivel" id="DontHaveresponses"></div>
+    <div class="visivel" id="DontLivedresponses"></div>
+    <div class="visivel" id="HadDogsresponses"></div>
+    <div class="visivel" id="HaveDogsresponses"></div>
+
+    <aside class="sidebar">
+        <img class="logo-imagem" src="images/logobranco.png" alt="Logo Abandono Zero">
+        <div class="profile">
+            <p class="bemvindo">Bem-vindo, Usuário</p>
+            <h2>Olá, Animalware!</h2>
+        </div>
+        <div class="menu">
+            <h3>Dados Coletados</h3>
+
+            <div class="buttons-container"> 
+                <!-- Botões -->
+                <button type="button" class="btn btn-primary" onclick="downloadCSV('donthavebutwant')">Quer ter</button>
+                <button type="button" class="btn btn-secondary" onclick="downloadCSV('dontlivedanddontwant')">Não quer ter</button>
+                <button type="button" class="btn btn-success" onclick="downloadCSV('haddogsorlivedwith')">Já teve</button>
+                <button type="button" class="btn btn-danger" onclick="downloadCSV('havedogs')">Tem</button>
+                <button type="button" class="btn btn-warning" onclick="downloadCSV('all')">Todos</button>
+            </div>
+
+            <div class="footer">
+                <button type="button" class="btn btn-primary" onclick="redirectToHomepage()">Sair</button>
+            </div>
+        </div>
+    </aside>
+    <main class="main-content">
+        <div class="charts">
+            <div class="chart-container">
+                <h3>Gráficos</h3>
+                <canvas id="pieChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="barChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="lineChart"></canvas>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pieChartContext = document.getElementById('pieChart').getContext('2d');
+            const barChartContext = document.getElementById('barChart').getContext('2d');
+            const lineChartContext = document.getElementById('lineChart').getContext('2d');
+
+            new Chart(pieChartContext, {
+                type: 'pie',
+                data: {
+                    labels: ['Não tem cachorro e quer ter', 'Não tem cachorro e não quer ter', 'Já teve cachorro', 'Tem cachorro'],
+                    datasets: [{
+                        data: [30, 15, 30, 25],
+                        backgroundColor: [
+                            '#ff9999', '#66b3ff', '#99ff99', '#ffcc99'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Distribuição de Preferências por Cachorros'
+                        }
+                    }
+                }
+            });
+
+            new Chart(barChartContext, {
+                type: 'bar',
+                data: {
+                    labels: ['A', 'B', 'C', 'D'],
+                    datasets: [{
+                        data: [78, 150, 153, 80],
+                        backgroundColor: '#66b3ff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Quantidade de Cachorros por Tipo de Formulário'
+                        }
+                    }
+                }
+            });
+
+            new Chart(lineChartContext, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Fev', 'Mar', 'Abr'],
+                    datasets: [{
+                        data: [154, 150, 153, 80],
+                        backgroundColor: '#99ff99',
+                        borderColor: '#66b3ff',
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Evolução da Quantidade de Formulários Preenchidos'
+                        }
+                    }
+                }
+            });
+        });
+
+        async function downloadCSV(type) {
+            try {
+                let endpoint = '';
+                switch (type) {
+                    case 'donthavebutwant':
+                        endpoint = '/responses/csv/donthavebutwant';
+                        break;
+                    case 'dontlivedanddontwant':
+                        endpoint = '/responses/csv/dontlivedanddontwant';
+                        break;
+                    case 'haddogsorlivedwith':
+                        endpoint = '/responses/csv/haddogsorlivedwith';
+                        break;
+                    case 'havedogs':
+                        endpoint = '/responses/csv/havedogs';
+                        break;
+                    case 'all':
+                        endpoint = '/responses/csv/all';
+                        break;
+                    default:
+                        return;
+                }
+
+                const response = await fetch(endpoint);
+                const csvData = await response.json();
+                console.log(csvData)
+
+                const blob = new Blob([csvData], { type: 'text/csv' });
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                a.download = 'form_responses.csv';
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+            } catch (error) {
+                console.error('Erro ao baixar arquivo CSV: ', error);
+            }
+        }
+
+        function redirectToHomepage() {
+        window.location.href = 'http://localhost:1337/'; // Redireciona para a homepage
+    }
+
+    async function DontHaveresponses() {
+          try {
+            const response = await fetch(
+              "http://localhost:1337/DontHaveButWant"
+            );
+            const data = await response.json();
+            console.log(data);
+            var paragrafo = document.createElement("p");
+            paragrafo.textContent = `Total responses: ${data.length}`;
+            const dataDiv = document.getElementById("DontHaveresponses");
+            dataDiv.appendChild(paragrafo);
+            return data.length;
+          } catch (error) {
+            console.error("Erro ao buscar dados:", error);
+          }
+        }
+
+        async function DontLivedresponses() {
+          try {
+            const response = await fetch(
+              "http://localhost:1337/DontLivedAndDontWant"
+            );
+            const data = await response.json();
+            console.log(data);
+            var paragrafo = document.createElement("p");
+            paragrafo.textContent = `Total responses: ${data.length}`;
+            const dataDiv = document.getElementById("DontLivedresponses");
+            dataDiv.appendChild(paragrafo);
+            return data.length;
+          } catch (error) {
+            console.error("Erro ao buscar dados:", error);
+          }
+        }
+        async function HadDogsresponses() {
+          try {
+            const response = await fetch(
+              "http://localhost:1337/HadDogsOrLivedWith"
+            );
+            const data = await response.json();
+            console.log(data);
+            var paragrafo = document.createElement("p");
+            paragrafo.textContent = `Total responses: ${data.length}`;
+            const dataDiv = document.getElementById("HadDogsresponses");
+            dataDiv.appendChild(paragrafo);
+            return data.length;
+          } catch (error) {
+            console.error("Erro ao buscar dados:", error);
+          }
+        }
+        async function HaveDogsresponses() {
+          try {
+            const response = await fetch("http://localhost:1337/HaveDogs");
+            const data = await response.json();
+            console.log(data);
+            var paragrafo = document.createElement("p");
+            paragrafo.textContent = `Total responses: ${data.length}`;
+            const dataDiv = document.getElementById("HaveDogsresponses");
+            dataDiv.appendChild(paragrafo);
+            return data.length;
+          } catch (error) {
+            console.error("Erro ao buscar dados:", error);
+          }
+        }
+
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
